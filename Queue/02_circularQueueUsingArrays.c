@@ -20,7 +20,7 @@ int isEmpty(struct queue *q)
     if (q->r == q->f)
     {
         return 1;
-    }
+    } 
     else
         return 0;
 }

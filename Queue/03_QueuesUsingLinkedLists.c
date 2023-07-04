@@ -35,9 +35,13 @@ struct Node *enqueue(struct Node *front, int val)
     {
         struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
         ptr->data = val;
-        ptr->next = front;
-        front = ptr;
-        return front;
+        struct Node *temp = front;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = ptr;
+        ptr->next = NULL;
     }
 }
 
@@ -49,17 +53,10 @@ struct Node *dequeue(struct Node *front)
     }
     else
     {
-        struct Node *rear = front->next;
         struct Node *temp = front;
-        while (rear->next != NULL)
-        {
-            rear = rear->next;
-            temp = temp->next;
-        }
-        printf("The Element removed form the queue is %d\n", rear->data);
-        temp->next = NULL;
-        free(rear);
-        return front;
+        front = front->next;
+        printf("The Element removed form the queue is %d\n", temp->data);
+        free(temp);
     }
 }
 int main()
