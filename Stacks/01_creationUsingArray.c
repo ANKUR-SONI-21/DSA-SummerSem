@@ -24,7 +24,7 @@ int isFull(struct Stack *ptr)
 int main()
 {
     //* implementing Stack
-    struct Stack *S;
+    struct Stack *S = (struct Stack*)malloc(sizeof(struct Stack));
     S->size = 10;
     S->top = -1;
     S->arr = (int *)malloc(S->size * sizeof(int));

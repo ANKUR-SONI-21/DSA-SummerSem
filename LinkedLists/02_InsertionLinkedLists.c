@@ -15,6 +15,7 @@ void traversal(struct Node *p)
         p = p->next;
     }
 }
+
 struct Node *insertAtStart(struct Node *head, int data)
 {
     struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
