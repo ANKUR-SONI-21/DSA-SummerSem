@@ -15,6 +15,7 @@ void traversal(struct Node *p)
         p = p->next;
     }
 }
+
 struct Node *reverseLinkedList(struct Node *head)
 {
     struct Node *p = head;
@@ -35,6 +36,7 @@ struct Node *reverseLinkedList(struct Node *head)
     head = p;
     return head;
 }
+
 int main()
 {
     struct Node *head;

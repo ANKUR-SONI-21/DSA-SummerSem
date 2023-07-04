@@ -49,7 +49,7 @@ int pop(struct stack *ptr)
         printf("Stack is Underflow!");
     else
     {
-        //! initioalizing a pointer to the top most element is mandatory
+        //! initioalizing a pointer to the top most element is not mandatory
         //! but freeing up space can be beneficial
         int *p = &ptr->arr[ptr->top];
         int val = ptr->arr[ptr->top];
