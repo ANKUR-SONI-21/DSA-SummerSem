@@ -23,29 +23,27 @@ struct Node *connectNode(struct Node *root, struct Node *l, struct Node *r)
     return root;
 }
 
-void inOrder(struct Node *root)
+int search(struct Node *root, int data)
 {
     if (root != NULL)
     {
-        inOrder(root->left);
-        printf(" %d\n", root->data);
-        inOrder(root->right);
+        if (root->data == data)
+        {
+            return 1;
+        }
+        else if (root->data > data)
+        {
+            search(root->left, data);
+        }
+        else
+        {
+            search(root->right, data);
+        }
     }
 }
+
 int main()
 {
-    //! making a function for it....
-    // struct Node *p = createNode(2);
-    // struct Node *p1 = createNode(1);
-    // struct Node *p2 = createNode(4);
-    // struct Node *p3 = createNode(11);
-    // struct Node *p4 = createNode(12);
-    // struct Node *p5 = createNode(3);
-
-    // p = connectNode(p, p1, p2);
-    // p1 = connectNode(p1, p3, p4);
-    // p2 = connectNode(p2, NULL, p5);
-
     struct Node *p = createNode(9);
     struct Node *p1 = createNode(4);
     struct Node *p2 = createNode(11);
@@ -60,8 +58,16 @@ int main()
     p1 = connectNode(p1, p3, p4);
     p2 = connectNode(p2, NULL, p7);
     p4 = connectNode(p4, p5, p6);
-    p7 = connectNode(p7, p8, NULL);
+    p7 = connectNode(p7, NULL, p8);
 
-    inOrder(p);
+    if (search(p, 4
+    ))
+    {
+        printf("YES, the given element is present in Binary Search Tree!\n");
+    }
+    else
+    {
+        printf("NO, the given element is NOT present in Binary Search Tree!\n");
+    }
     return 0;
 }
